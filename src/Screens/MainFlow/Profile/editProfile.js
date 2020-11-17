@@ -157,5 +157,11 @@ const styles = StyleSheet.create({
     editePhotoModalContainer:{
         justifyContent: 'center',
         paddingHorizontal:Sizes.marginHorizontal*2
-    }
+    },
+    shadow: {
+        shadowOffset: { width: 5, height: 5 },
+        shadowColor: Colors.black,
+        shadowOpacity: 0.25,
+        elevation: 5
+    },
 })

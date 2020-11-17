@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Slider, TextInput, ScrollView, TouchableOpacity, ImageBackground, Dimensions, Image } from 'react-native';
+import { View, Text, StyleSheet, Slider, TextInput, ScrollView, TouchableOpacity, Dimensions,ImageBackground,Image } from 'react-native';
 import { width, height, totalSize } from 'react-native-dimension';
 import Carousel from 'react-native-snap-carousel';
 import { Icon } from 'react-native-elements';
@@ -11,18 +11,18 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { routes } from '../../../services';
 
-
 const Colors = {
     purple: '#651a93',
     orange: '#f9c400',
     whisper: '#f0edf4',
     white: '#ffffff',
     steel: '#cccccc',
-    black: '#000000'
+    black: '#000000',
+    blue: '#585AD6',
 }
 
 
-class Wish extends Component {
+class Grant2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -116,7 +116,7 @@ class Wish extends Component {
                 {
                     this.state.sliderOptions.map((item, key) => {
                         return (
-                            <Text style={{ fontSize: totalSize(1.7), color: '#651a93' }}>{item.label}</Text>
+                            <Text style={{ fontSize: totalSize(1.7), color: '#585AD6' }}>{item.label}</Text>
                         )
                     })
                 }
@@ -142,18 +142,18 @@ class Wish extends Component {
         return (
             <View style={styles.mainContainer}>
                 <View style={styles.headerMainContainer}>
-                     <ImageBackground source={require('../../../Assets/Images/WishlistHeader.jpg')} style={styles.backgroundImage}>
+                     <ImageBackground source={require('../../../Assets/Images/grantHeader.jpg')} style={styles.backgroundImage}>
                         {this.props.children}    
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
+                        <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
                         <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
-                        </TouchableOpacity> 
+                        </TouchableOpacity>
 
-                        <Text style={styles.wishText}>
-                            Wish
+                        <Text style={styles.grantText}>
+                            Grant
                         </Text>
 
-                        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.wish1)}>
+                        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.Grant1)}>
                         <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
                         </TouchableOpacity> 
 
@@ -278,7 +278,7 @@ class Wish extends Component {
                         </View>
                     </View>
                     <View style={[{ backgroundColor: Colors.white, paddingVertical: height(2.5), alignItems: 'center' }, styles.shadow]}>
-                        <TouchableOpacity onPress={()=> this.props.navigation.navigate(routes.offersTinderList)} style={styles.submitButton}>
+                        <TouchableOpacity style={styles.submitButton} onPress={() => this.props.navigation.navigate(routes.MyGrantlist)}>
                             <Text style={[styles.buttonText]}>Submit</Text>
                         </TouchableOpacity>
                     </View>
@@ -288,7 +288,7 @@ class Wish extends Component {
     }
 }
 
-export default Wish;
+export default Grant2;
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -329,17 +329,17 @@ const styles = StyleSheet.create({
     title: {
         fontSize: totalSize(2),
         fontWeight: 'bold',
-        color: Colors.purple
+        color: Colors.blue
     },
     detail: {
         fontSize: totalSize(1.5),
         fontWeight: 'normal',
-        color: Colors.purple
+        color: Colors.blue
     },
     SelectedItem: {
         fontSize: totalSize(1.6),
         fontWeight: '600',
-        color: Colors.purple
+        color: Colors.blue
     },
     categorySlideInactive: {
         height: totalSize(6),
@@ -360,6 +360,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: Colors.white,
         alignSelf: 'center',
+    },
+    textCenter: {
+        textAlign: 'center'
+    },
+    snapsliderContainer: {
+        marginHorizontal: width(5)
+    },
+    snapslider: {
+        // backgroundColor:'red'
+    },
+    snapsliderItemWrapper: {
+        // backgroundColor:'red'
+    },
+    snapsliderItem: {
+        color: 'red'
     },
     headerMainContainer: {
         flexDirection: 'row',
@@ -382,47 +397,32 @@ const styles = StyleSheet.create({
         marginVertical: 60,
         left: 15
     },
-    wishlistIcon: {
+    treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
         marginVertical: 60,
         right: 10
-    },
-    textCenter: {
-        textAlign: 'center'
-    },
-    snapsliderContainer: {
-        marginHorizontal: width(5)
-    },
-    snapslider: {
-        // backgroundColor:'red'
-    },
-    snapsliderItemWrapper: {
-        // backgroundColor:'red'
-    },
-    snapsliderItem: {
-        color: 'red'
     },
     backIcon: {
         position: 'absolute',
         marginVertical: 70,
         left: 10,
       },
-    submitButton: {
-        backgroundColor: Colors.orange, 
-        paddingHorizontal: 30, 
-        paddingVertical: 10, 
-        borderRadius: 100,
-        shadowOffset: { width: 3, height: 6 },
-        shadowColor: Colors.black,
-        shadowOpacity: 0.16,
-        elevation: 5
-    },
-    wishText: {
+      grantText: {
         fontSize: 34,
         color: 'white',
         fontWeight: 'bold',
         position: 'absolute',
         top: 62,
+    },
+    submitButton: {
+        shadowOffset: { width: 3, height: 6 },
+        shadowColor: Colors.black,
+        shadowOpacity: 0.16,
+        elevation: 5,
+        backgroundColor: Colors.orange, 
+        paddingHorizontal: 30, 
+        paddingVertical: 10, 
+        borderRadius: 100 
     }
 })

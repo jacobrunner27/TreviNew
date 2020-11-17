@@ -15,13 +15,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { routes } from '../../../services';
-
-
-
-
-
 
 export default class LoginView extends Component {
 
@@ -36,23 +32,15 @@ export default class LoginView extends Component {
     return (
       
       <View style={styles.container}>
+        
 
         <View>
-          
-        <ImageBackground source={require('../../../Assets/Images/Wish1Background.jpg')} style={styles.backgroundImage}>
-                    {this.props.children}     
-
-          <View styles={styles.headerIconLeft}> 
-            <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-              <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
-            </TouchableOpacity>
-          </View>
-
-
+        <ImageBackground source={require('../../../Assets/Images/Grant1.jpg')} style={styles.backgroundImage}>
+                    {this.props.children}       
         </ImageBackground>
         </View>
 
-        <TouchableOpacity style={[styles.continueButtonContainer, styles.continueButton]} onPress={()=> this.props.navigation.navigate(routes.wish)}>
+        <TouchableOpacity style={[styles.continueButtonContainer, styles.continueButton]} onPress={()=> this.props.navigation.navigate(routes.Grant2)}>
           <Text style={styles.continueText}>Continue</Text>
         </TouchableOpacity>
         
@@ -75,22 +63,17 @@ export default class LoginView extends Component {
                 onChangeText={text => this.setState({email:text})}/>
             </View>
             
-            <View style={styles.minimumMaximumPosition}> 
-            <View style={styles.minimumInput} >
+            <View style={styles.priceInput}> 
+            <View style={styles.priceStyle} >
             <TextInput  
                 style={styles.inputText}
-                placeholder="minimum" 
-                placeholderTextColor="#D3D3D3"
-                onChangeText={text => this.setState({email:text})}/>
-            </View>
-            <View style={styles.maximumInput} >
-            <TextInput  
-                style={styles.inputText}
-                placeholder="maximum" 
+                placeholder="price" 
                 placeholderTextColor="#D3D3D3"
                 onChangeText={text => this.setState({email:text})}/>
             </View>
             </View>
+            
+            
             
         </View>
         
@@ -187,7 +170,7 @@ const styles = StyleSheet.create({
     backgroundColor:"white",
     //add shadow to the bottom
     height: 35,
-    top: -150,
+    top: -165,
     borderRadius: 30,
     justifyContent:"center",
     padding:10
@@ -214,12 +197,12 @@ const styles = StyleSheet.create({
     backgroundColor:"white",
     //add shadow to the bottom
     height: 145,
-    top: -15,
+    top: -55,
     borderRadius: 20,
     justifyContent:"center",
     padding:10 
   },
-  minimumInput: {
+  priceStyle: {
     width: 130,
     backgroundColor:"white",
     //add shadow to the bottom
@@ -228,43 +211,11 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     padding:10 
   },
-  maximumInput: {
-    width: 130,
-    backgroundColor:"white",
-    //add shadow to the bottom
-    height: 35,
-    borderRadius: 30,
-    justifyContent:"center",
-    padding:10 
-  },
-  minimumMaximumPosition: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: width(6.5),
-    top: 90,
-    
-  },
-  zipCodeInput: {
-    width: 375,
-    backgroundColor:"white",
-    //add shadow to the bottom
-    height: 35,
-    top: 185,
-    borderRadius: 30,
-    justifyContent:"center",
-    padding:10 
-  },
-  treviIcon: {
-    flexDirection: 'row',
+  priceInput: {
     position: 'absolute',
-    marginVertical: 60,
-    left: 10
-},
-  headerIconLeft: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-},
+    top: 230,
+    left: 125
+  }
 });
 
                                             

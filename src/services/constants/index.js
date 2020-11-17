@@ -37,6 +37,9 @@ const routes = {
     loginScreen: 'loginScreen',
     verifyEmail: 'verifyEmail',
     termsAndConditions: 'termsAndConditions',
+    Grant1: 'Grant1',
+    Grant2: 'Grant2',
+    MyGrantlist: 'MyGrantlist',
 }
 
 const tab = {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Slider, TextInput, ScrollView, TouchableOpacity, FlatList, Image, Dimensions, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, Slider, TextInput, ScrollView, TouchableOpacity, FlatList, Image, Dimensions, ImageBackground } from 'react-native';
 import { width, height, totalSize } from 'react-native-dimension';
 import Carousel from 'react-native-snap-carousel';
 import { Icon } from 'react-native-elements';
@@ -11,6 +11,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { routes } from '../../../services';
 
+
 const Colors = {
     purple: '#651a93',
     orange: '#f9c400',
@@ -19,11 +20,12 @@ const Colors = {
     steel: '#cccccc',
     black: '#000000',
     gray: 'gray',
+    blue: '#585AD6',
     transparent: 'transparent'
 }
 
 
-class MyWishlist extends Component {
+class MyGrantlist extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -150,7 +152,7 @@ class MyWishlist extends Component {
                     <Icon
                         name={item.iconName}
                         type={item.iconType}
-                        color={index === this.state.selectedCategoryIndex + 3 ? Colors.purple : Colors.steel}
+                        color={index === this.state.selectedCategoryIndex + 3 ? Colors.blue : Colors.steel}
                         size={totalSize(2.5)}
                     />
                     {
@@ -165,22 +167,22 @@ class MyWishlist extends Component {
             </View>
         );
     }
-    renderProducts = ({ data, onPressMessages, onPressEdit }) => {
+    renderProducts = ({ data, onPressDelete, onPressSold }) => {
         const swipeoutBtns = [
             {
-                text: 'Messages',
+                text: 'Delete',
                 backgroundColor: Colors.orange,
-                onPress: onPressMessages
+                onPress: onPressDelete
             },
             {
-                text: 'Edit',
+                text: 'Mark Sold',
                 backgroundColor: Colors.steel,
-                onPress: onPressEdit
+                onPress: onPressSold
             },
 
         ]
         return (
-            <View style={[styles.shadow2,{ flex: 1 }]}>
+            <View style={{ flex: 1 }}>
                 <FlatList
                     ref={ref => (this.timerFlatlistRef = ref)}
                     data={data}
@@ -192,30 +194,27 @@ class MyWishlist extends Component {
                                 backgroundColor={Colors.whisper}
                                 style={[{ marginRight: width(5), borderRadius: 25, marginLeft: 0, marginTop: index === 0 ? height(2) : 0, marginBottom: index === data.length - 1 ? height(10) : height(2) }]}
                             >
-                                <View style={styles.itemContainer}>
+                                <View style={[{ backgroundColor: Colors.white, borderRadius: 25, marginLeft: width(5) }]}>
                                     <View style={{ flexDirection: 'row', margin: 5 }}>
                                         <View style={{ flex: 3 }}>
-                                            <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.offersTinderList)}> 
                                             <Image
                                                 source={item.image}
                                                 style={{ height: index === 2 || index === 5 ? 150 : 100, width: null, borderRadius: 25 }}
                                             />
-                                            </TouchableOpacity>
                                         </View>
-                                        {
-                                        item.notifications ?
-                                            <View style={[styles.shadow, { height: totalSize(2.5), width: totalSize(2.5), borderRadius: 100, backgroundColor: Colors.orange, position: 'absolute', top: 0, left: -3.5, alignItems: 'center', justifyContent: 'center' }]}>
-                                                <Text style={{ color: Colors.white, fontSize: totalSize(1.5) }}>{item.notifications}</Text>
-                                            </View>
-                                            :
-                                            null
-                                    }
                                         <View style={{ flex: 7, padding: 10, backgroundColor: 'transparent', justifyContent: 'space-between' }}>
                                             <Text style={styles.productTitle}>{item.title}</Text>
                                             <Text style={styles.productPrice}>{item.price}</Text>
                                         </View>
                                     </View>
-                                    
+                                    {
+                                        item.notifications ?
+                                            <View style={[styles.shadow, { height: totalSize(2.5), width: totalSize(2.5), borderRadius: 100, backgroundColor: Colors.orange, position: 'absolute', top: 1, left: -2.5, alignItems: 'center', justifyContent: 'center' }]}>
+                                                <Text style={{ color: Colors.white, fontSize: totalSize(1.5) }}>{item.notifications}</Text>
+                                            </View>
+                                            :
+                                            null
+                                    }
                                 </View>
                             </Swipeout>
                         )
@@ -229,26 +228,23 @@ class MyWishlist extends Component {
         const flatListRef = null
         return (
             <View style={styles.mainContainer}>
+
                 <View style={styles.headerMainContainer}>
-                    <ImageBackground source={require('../../../Assets/Images/WishlistHeader.jpg')} style={styles.backgroundImage}>
+                    <ImageBackground source={require('../../../Assets/Images/grantHeader.jpg')} style={styles.backgroundImage}>
                         {this.props.children}  
 
-
-                        <TouchableOpacity onPress={()=> this.props.navigation.navigate(routes.trending)} style={styles.treviIcon}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }} />
-                        </TouchableOpacity>
-
-                        <Text style={styles.myWishlistText}>
-                            My Wishlist
-                        </Text>
-
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={()=> this.props.navigation.navigate(routes.Grant1)} >
+                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate('MyGrantlist')}>
                         <IonIcon name={'reader-outline'} size={35} color={Colors.white}  />
                         </TouchableOpacity> 
+
+                        <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
+                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }} />
+                        </TouchableOpacity>
 
                      </ImageBackground>
                      
                 </View>
+
                 <View>
                     <View style={[{ justifyContent: 'center', backgroundColor: Colors.white, paddingVertical: height(1) }, styles.shadow]}>
                         <this.LineHorizontal style={{ position: 'absolute', right: 0, left: 0, borderBottomColor: Colors.steel, borderBottomWidth: 2 }} />
@@ -272,11 +268,13 @@ class MyWishlist extends Component {
                 <View style={[styles.compContainer, { marginVertical: height(1.5) }]}>
                     <Text style={[styles.title, {}]}>{categories_list[selectedCategoryIndex].title}</Text>
                 </View>
+                
                 <this.renderProducts
                     data={products_list}
                     ref={flatListRef}
                 />
-                <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.wish1)} style={{ position: 'absolute', bottom: -totalSize(7.5), left: -totalSize(7.5), height: totalSize(15), width: totalSize(15), backgroundColor: Colors.purple, borderRadius: 100, alignItems: 'flex-end', padding: totalSize(2.5) }}>
+                
+                <TouchableOpacity style={{ position: 'absolute', bottom: -totalSize(7.5), left: -totalSize(7.5), height: totalSize(15), width: totalSize(15), backgroundColor: Colors.blue, borderRadius: 100, alignItems: 'flex-end', padding: totalSize(2.5) }}>
                     <Icon
                         name="plus"
                         type="font-awesome"
@@ -291,7 +289,7 @@ class MyWishlist extends Component {
                             index: 0,
                         })
                     }
-                    style={{ position: 'absolute', bottom: -totalSize(1), right: -totalSize(1), height: totalSize(6), width: totalSize(5), backgroundColor: Colors.purple, borderRadius: 10, alignItems: 'flex-start', padding: totalSize(1) }}>
+                    style={{ position: 'absolute', bottom: -totalSize(1), right: -totalSize(1), height: totalSize(6), width: totalSize(5), backgroundColor: Colors.blue, borderRadius: 10, alignItems: 'flex-start', padding: totalSize(1) }}>
                     <Icon
                         name="arrow-up"
                         type="font-awesome"
@@ -304,7 +302,7 @@ class MyWishlist extends Component {
     }
 }
 
-export default MyWishlist;
+export default MyGrantlist;
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -313,33 +311,23 @@ const styles = StyleSheet.create({
     },
     compContainer: {
         marginHorizontal: width(5),
-        marginVertical: height(2.5),
-        
+        marginVertical: height(2.5)
     },
     rowCompContainer: {
         marginHorizontal: width(5),
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginVertical: height(2.5),
-        
+        marginVertical: height(2.5)
     },
     rowView: {
         flexDirection: 'row',
         alignItems: 'center',
-        
     },
     shadow: {
-        shadowOffset: { width: 3, height: 6 },
+        shadowOffset: { width: 10, height: 10 },
         shadowColor: Colors.black,
-        shadowOpacity: 0.20,
-        elevation: 5
-    },
-    shadow2: {
-        shadowOffset: { width: 3, height: 6 },
-        marginLeft: width(5),
-        shadowColor: Colors.black,
-        shadowOpacity: 0.20,
+        shadowOpacity: 0.25,
         elevation: 5
     },
     lineHorizontal: {
@@ -353,21 +341,19 @@ const styles = StyleSheet.create({
         color: Colors.white
     },
     title: {
-        marginTop: 10,
-        marginBottom: -10,
-        fontSize: totalSize(2.8),
+        fontSize: totalSize(2),
         fontWeight: 'bold',
-        color: Colors.purple
+        color: Colors.blue,
     },
     detail: {
         fontSize: totalSize(1.5),
         fontWeight: 'normal',
-        color: Colors.purple
+        color: Colors.blue,
     },
     productTitle: {
         fontSize: totalSize(1.5),
         fontWeight: 'bold',
-        color: Colors.purple
+        color: Colors.blue,
     },
     productPrice: {
         fontSize: totalSize(1.25),
@@ -377,7 +363,7 @@ const styles = StyleSheet.create({
     SelectedItem: {
         fontSize: totalSize(1.6),
         fontWeight: '600',
-        color: Colors.purple
+        color: Colors.blue,
     },
     categorySlideInactive: {
         height: totalSize(6),
@@ -392,12 +378,27 @@ const styles = StyleSheet.create({
         height: totalSize(6),
         width: totalSize(6),
         borderWidth: 2.5,
-        borderColor: Colors.purple,
+        borderColor: Colors.blue,
         borderRadius: 100,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: Colors.white,
         alignSelf: 'center',
+    },
+    textCenter: {
+        textAlign: 'center'
+    },
+    snapsliderContainer: {
+        marginHorizontal: width(5)
+    },
+    snapslider: {
+        // backgroundColor:'red'
+    },
+    snapsliderItemWrapper: {
+        // backgroundColor:'red'
+    },
+    snapsliderItem: {
+        color: 'red'
     },
     headerMainContainer: {
         flexDirection: 'row',
@@ -413,8 +414,8 @@ const styles = StyleSheet.create({
         shadowColor: Colors.black,
         shadowOpacity: 0.16,
         elevation: 5
-    },
-    profileIcon: {
+      },
+      profileIcon: {
         flexDirection: 'row',
         position: 'absolute',
         marginVertical: 60,
@@ -430,44 +431,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         position: 'absolute',
         marginVertical: 60,
-        left: 15
         
     },
-    textCenter: {
-        textAlign: 'center'
-    },
-    snapsliderContainer: {
-        marginHorizontal: width(5),
-        
-    },
-    snapslider: {
-        // backgroundColor:'red'
-    },
-    snapsliderItemWrapper: {
-        // backgroundColor:'red'
-    },
-    snapsliderItem: {
-        color: 'red'
-    },
-    itemContainer: {
-        backgroundColor: Colors.white, 
-        borderRadius: 25, 
-        shadowOffset: { width: 3, height: 6 },
-        shadowColor: Colors.black,
-        shadowOpacity: 0.16,
-        elevation: 5
-    },
-    wishlistIcon: {
-        flexDirection: 'row',
-        position: 'absolute',
-        marginVertical: 60,
-        right: 12
-    },
-    myWishlistText: {
-        fontSize: 34,
-        color: 'white',
-        fontWeight: 'bold',
-        position: 'absolute',
-        top: 62,
-    }
 })

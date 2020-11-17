@@ -14,6 +14,9 @@ import {
     termsAndConditions
 } from '../Screens/MainFlow/login'
 
+import { Grant1,Grant2} from '../Screens/MainFlow/Grant';
+
+import { MyGrantlist } from '../Screens/MainFlow/MyGrantlist';
 import { MyWishlist } from '../Screens/MainFlow/MyWishlist';
 import { OffersTinder, Offers, OffersTinderList } from '../Screens/MainFlow/Offers';
 import { Trending } from '../Screens/MainFlow/Trending';
@@ -133,6 +136,18 @@ function Navigation() {
                 <Stack.Screen
                     name={routes.verifyEmail}
                     component={verifyEmail}
+                />
+                <Stack.Screen
+                    name={routes.Grant1}
+                    component={Grant1}
+                />
+                <Stack.Screen
+                    name={routes.Grant2}
+                    component={Grant2}
+                />
+                <Stack.Screen
+                    name={routes.MyGrantlist}
+                    component={MyGrantlist}
                 />
             </Stack.Navigator>
         </NavigationContainer>

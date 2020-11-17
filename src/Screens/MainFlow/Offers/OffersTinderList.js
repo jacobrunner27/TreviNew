@@ -522,14 +522,18 @@ class OffersTinderList extends Component {
             <View style={[styles.mainContainer]}>
                 <View style={styles.headerMainContainer}>
                      <ImageBackground source={require('../../../Assets/Images/WishlistHeader.jpg')} style={styles.backgroundImage}>
-                        {this.props.children}  
+                        {this.props.children}    
 
-                        <TouchableOpacity onPress={()=> this.props.navigation.navigate(routes.myWishlist)} style={styles.treviIcon}>
-                        <IonIcon name={'cheveron-back-outline'} size={35} color={'white'} />
-                        </TouchableOpacity>   
+                        <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
+                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
+                        </TouchableOpacity> 
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')}/>
+                        <Text style={styles.offersText}>
+                            Offers
+                        </Text>
+
+                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate('myWishlist')}>
+                        <IonIcon name={'reader-outline'} size={35} color={Colors.white}  />
                         </TouchableOpacity> 
 
                      </ImageBackground>
@@ -718,12 +722,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         position: 'absolute',
         marginVertical: 60,
-        right: 15
+        left: 15
     },
     wishlistIcon: {
         flexDirection: 'row',
         position: 'absolute',
         marginVertical: 60,
-        left: 10
+        right: 10
     },
+    offersText: {
+        fontSize: 34,
+        color: 'white',
+        fontWeight: 'bold',
+        position: 'absolute',
+        top: 62,
+    }
 })
