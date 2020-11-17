@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView} from 'react-native';
-import Colors from '../../Themes/Colors';
+
 
 
 const createAccountLoginButton = props => {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     addToButton: {
         width: 115,
         height: 34,
-        backgroundColor: Colors.wishlistColor,
+        backgroundColor: 'white',
         borderRadius: 8
     },
     addToText: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     sellSomethingButton: {
         width: 168,
         height: 34,
-        backgroundColor: Colors.wishlistColor,
+        backgroundColor: 'white',
         borderRadius: 8,
         position: 'absolute',
         left: 108

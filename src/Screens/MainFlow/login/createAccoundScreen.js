@@ -14,13 +14,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-
-
-import { createStackNavigator, createAppContainer } from "react-navigation";
-
-
-
-
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { routes } from '../../../services';
 
 export default class LoginView extends Component {
 
@@ -38,18 +34,18 @@ export default class LoginView extends Component {
         
 
         <View>
-        <ImageBackground source={require('../../../assets/Images/createAccountScreen.png')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../../../Assets/Images/createAccountScreen.jpg')} style={styles.backgroundImage}>
                     {this.props.children}       
         </ImageBackground>
         </View>
 
-        <TouchableOpacity style={[styles.createButtonContainer, styles.createAccountButton]} onPress={this.createAccountNavigation}>
+        <TouchableOpacity style={[styles.createButtonContainer, styles.createAccountButton]} onPress={()=> this.props.navigation.navigate(routes.verifyEmail)}>
           <Text style={styles.createAccountText}>Create Account</Text>
         </TouchableOpacity>
         
-        <TouchableHighlight style={[styles.loginButtonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
-          <Text style={styles.loginText}>Terms and Conditions</Text>
-        </TouchableHighlight>
+        <TouchableOpacity style={[styles.termsButtonContainer, styles.termsButton]} onPress={()=> this.props.navigation.navigate(routes.termsAndConditions)} >
+          <Text style={styles.termsText}>Terms and Conditions</Text>
+        </TouchableOpacity>
         <View style={styles.userInputs}>
             <View style={styles.firstNameInput} >
             <TextInput  
@@ -93,7 +89,15 @@ export default class LoginView extends Component {
                 placeholderTextColor="#D3D3D3"
                 onChangeText={text => this.setState({email:text})}/>
             </View>
+
+            <View styles={styles.headerIconLeft}> 
+              <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.createAccountOrLoginScreen)}>
+              <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
+              </TouchableOpacity>
+            </View>
+
         </View>
+        
         
       </View>
       
@@ -117,6 +121,7 @@ const styles = StyleSheet.create({
   createAccountButton: {
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
   inputContainer: {
       borderBottomColor: '#F5FCFF',
@@ -143,7 +148,7 @@ const styles = StyleSheet.create({
   treviText: {
 
   },
-  loginButtonContainer: {
+  termsButtonContainer: {
     height:35,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -151,10 +156,14 @@ const styles = StyleSheet.create({
     width:210,
     borderRadius:30,
   },
-  loginButton: {
+  termsButton: {
     backgroundColor: "white",
     position: 'absolute',
-    top: 750
+    top: 750,
+    shadowOffset: { width: 3, height: 6 },
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    elevation: 5
   },
   createButtonContainer: {
     height:48,
@@ -167,9 +176,13 @@ const styles = StyleSheet.create({
   createAccountButton: {
     backgroundColor: '#EFC102',
     position: 'absolute',
-    top: 818
+    top: 818,
+    shadowOffset: { width: 3, height: 6 },
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    elevation: 5
   },
-  loginText: {
+  termsText: {
     fontSize: 15,
     color: '#5D41BC',
     
@@ -247,7 +260,18 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent:"center",
     padding:10 
-  }
+  },
+  headerIconLeft: {
+    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  backIcon: {
+    position: 'absolute',
+    marginVertical: -500,
+    left: 10
+  },
 });
 
                                             

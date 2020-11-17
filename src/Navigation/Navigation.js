@@ -4,7 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Wish,Wish1 } from '../Screens/MainFlow/Wish';
 
-
+import { 
+    createAccountScreen, 
+    createAccountOrLoginScreen, 
+    EditEmail, 
+    EditLocation, 
+    LoginScreen, 
+    verifyEmail, 
+    termsAndConditions
+} from '../Screens/MainFlow/login'
 
 import { MyWishlist } from '../Screens/MainFlow/MyWishlist';
 import { OffersTinder, Offers, OffersTinderList } from '../Screens/MainFlow/Offers';
@@ -98,7 +106,34 @@ function Navigation() {
                         headerShown: false
                     }}
                 />
-                
+                <Stack.Screen
+                    name={routes.termsAndConditions}
+                    component={termsAndConditions}
+                />
+                <Stack.Screen
+                    name={routes.createAccountScreen}
+                    component={createAccountScreen}
+                />
+                <Stack.Screen
+                    name={routes.createAccountOrLoginScreen}
+                    component={createAccountOrLoginScreen}
+                />
+                <Stack.Screen
+                    name={routes.editEmail}
+                    component={EditEmail}
+                />
+                <Stack.Screen
+                    name={routes.editLocation}
+                    component={EditLocation}
+                />
+                <Stack.Screen
+                    name={routes.loginScreen}
+                    component={LoginScreen}
+                />
+                <Stack.Screen
+                    name={routes.verifyEmail}
+                    component={verifyEmail}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );

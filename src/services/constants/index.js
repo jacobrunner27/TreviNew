@@ -30,6 +30,13 @@ const routes = {
     myWishlist: 'myWishlist',
     aboutTrevi: 'aboutTrevi',
     loginScreen: 'loginScreen',
+    createAccountScreen: 'createAccountScreen',
+    createAccountOrLoginScreen: 'createAccountOrLoginScreen',
+    editEmail: 'editEmail',
+    editLocation: 'editLocation',
+    loginScreen: 'loginScreen',
+    verifyEmail: 'verifyEmail',
+    termsAndConditions: 'termsAndConditions',
 }
 
 const tab = {

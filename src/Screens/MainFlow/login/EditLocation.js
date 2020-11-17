@@ -16,13 +16,6 @@ import {
 } from 'react-native';
 
 
-
-import { createStackNavigator, createAppContainer } from "react-navigation";
-
-
-
-
-
 export default class LoginView extends Component {
 
   constructor(props) {
@@ -39,7 +32,7 @@ export default class LoginView extends Component {
         
 
         <View>
-        <ImageBackground source={require('../../../assets/Images/editLocation.png')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../../../Assets/Images/editLocation.jpg')} style={styles.backgroundImage}>
                     {this.props.children}       
         </ImageBackground>
         </View>

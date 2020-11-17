@@ -538,7 +538,7 @@ class Trending extends Component {
                                 <this.buttonSmall
                                     text="Sell"
                                     buttonStyle={{ paddingHorizontal: width(7.5), backgroundColor: Colors.secondary }}
-                                    onPress={()=> this.props.navigation.navigate(routes.wish1)}
+                                    onPress={()=> this.props.navigation.navigate(routes.createAccountOrLoginScreen)}
                                 />
                             </View>
                         </View>

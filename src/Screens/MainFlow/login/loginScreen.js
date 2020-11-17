@@ -34,12 +34,12 @@ export default class LoginView extends Component {
         
 
         <View>
-        <ImageBackground source={require('../../../Assets/Images/image1.jpg')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../../../Assets/Images/loginScreen.jpg')} style={styles.backgroundImage}>
                     {this.props.children}       
         </ImageBackground>
         </View>
 
-        <TouchableOpacity style={[styles.loginButtonContainer, styles.loginButton]} onPress={this.createAccountNavigation}>
+        <TouchableOpacity style={[styles.loginButtonContainer, styles.loginButton]} onPress={() => this.props.navigation.navigate(routes.trending)}>
           <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
         
@@ -62,6 +62,28 @@ export default class LoginView extends Component {
                 placeholderTextColor="#D3D3D3"
                 onChangeText={text => this.setState({email:text})}/>
             </View>
+        </View>
+
+        <View style={styles.forgotPasswordPosition}> 
+          <TouchableOpacity >
+            <Text style={styles.forgotPasswordText}> 
+                Forgot Password
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.rememberMePosition}> 
+          <TouchableOpacity >
+            <Text style={styles.rememberMeText}> 
+                Remember Me
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View styles={styles.headerIconLeft}> 
+            <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.createAccountOrLoginScreen)}>
+            <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
+            </TouchableOpacity>
         </View>
         
       </View>
@@ -123,7 +145,11 @@ const styles = StyleSheet.create({
   loginButton: {
     backgroundColor: '#EFC102',
     position: 'absolute',
-    top: 818
+    top: 818,
+    shadowOffset: { width: 3, height: 6 },
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    elevation: 5
   },
   loginText: {
     fontSize: 25,
@@ -159,6 +185,36 @@ const styles = StyleSheet.create({
     position: "absolute",
 
   },
+  forgotPasswordPosition: {
+    position: "absolute",
+    top: 350,
+    right: 20
+  },
+  forgotPasswordText: {
+    color: '#5D41BC',
+    fontSize: 18,
+    
+},
+  rememberMePosition: {
+    position: "absolute",
+    top: 350,
+    left: 40
+  },
+  rememberMeText: {
+    color: '#5D41BC',
+    fontSize: 18,
+  },
+  headerIconLeft: {
+    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+  backIcon: {
+    position: 'absolute',
+    marginVertical: -845,
+    left: -190
+}
   
 });
 

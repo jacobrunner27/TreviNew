@@ -14,6 +14,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { routes } from '../../../services';
 
 export default class LoginView extends Component {
 
@@ -36,11 +39,11 @@ export default class LoginView extends Component {
         </ImageBackground>
         </View>
 
-        <TouchableOpacity style={[styles.createButtonContainer, styles.createAccountButton]} onPress={this.createAccountNavigation}>
+        <TouchableOpacity style={[styles.createButtonContainer, styles.createAccountButton]} onPress={()=> this.props.navigation.navigate(routes.createAccountScreen)}>
           <Text style={styles.loginText}>Create Account</Text>
         </TouchableOpacity>
         
-        <TouchableHighlight style={[styles.loginButtonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+        <TouchableHighlight style={[styles.loginButtonContainer, styles.loginButton]} onPress={()=> this.props.navigation.navigate(routes.loginScreen)}>
           <Text style={styles.loginText}>Log In</Text>
         </TouchableHighlight>
 
