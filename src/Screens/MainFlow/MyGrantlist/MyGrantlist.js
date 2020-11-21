@@ -233,12 +233,16 @@ class MyGrantlist extends Component {
                     <ImageBackground source={require('../../../Assets/Images/grantHeader.jpg')} style={styles.backgroundImage}>
                         {this.props.children}  
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate('MyGrantlist')}>
+                        <TouchableOpacity style={styles.wishlistIcon} onPress={()=> this.props.navigation.navigate(routes.myWishlist)}>
                         <IonIcon name={'reader-outline'} size={35} color={Colors.white}  />
-                        </TouchableOpacity> 
+                        </TouchableOpacity>
+
+                        <Text style={styles.myGrantlistText}>
+                            My Grantlist
+                        </Text> 
 
                         <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }} />
+                        <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                         </TouchableOpacity>
 
                      </ImageBackground>
@@ -274,7 +278,7 @@ class MyGrantlist extends Component {
                     ref={flatListRef}
                 />
                 
-                <TouchableOpacity style={{ position: 'absolute', bottom: -totalSize(7.5), left: -totalSize(7.5), height: totalSize(15), width: totalSize(15), backgroundColor: Colors.blue, borderRadius: 100, alignItems: 'flex-end', padding: totalSize(2.5) }}>
+                <TouchableOpacity onPress={()=> this.props.navigation.navigate(routes.Grant1)} style={{ position: 'absolute', bottom: -totalSize(7.5), left: -totalSize(7.5), height: totalSize(15), width: totalSize(15), backgroundColor: Colors.blue, borderRadius: 100, alignItems: 'flex-end', padding: totalSize(2.5) }}>
                     <Icon
                         name="plus"
                         type="font-awesome"
@@ -430,7 +434,15 @@ const styles = StyleSheet.create({
     treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
-        marginVertical: 60,
+        top: 70,
+        left: 18
         
     },
+    myGrantlistText: {
+        fontSize: 34,
+        color: 'white',
+        fontWeight: 'bold',
+        position: 'absolute',
+        top: 62,
+    }
 })

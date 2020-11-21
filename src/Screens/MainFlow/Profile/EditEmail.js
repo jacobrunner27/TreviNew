@@ -15,6 +15,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { routes } from '../../../services';
 
 export default class LoginView extends Component {
 
@@ -32,18 +35,24 @@ export default class LoginView extends Component {
         
 
         <View>
-        <ImageBackground source={require('../../../Assets/Images/editEmail.jpg')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../../../Assets/Images/editEmailScreen.jpg')} style={styles.backgroundImage}>
                     {this.props.children}       
         </ImageBackground>
         </View>
 
-        <View style={styles.submitButton}> 
-       <TouchableOpacity style={[styles.submitButtonContainer, styles.continueButton]} onPress={this.continueNavigation}>
-          <Text style={styles.continueText}>Save</Text>
+        <Text style={styles.emailText}>
+          Email
+        </Text>
+
+        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.accountSettings)}>
+          <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
+        </TouchableOpacity> 
+
+        <View style={styles.saveButton}> 
+       <TouchableOpacity style={[styles.saveButtonContainer, styles.continueButton]} onPress={() => this.props.navigation.navigate(routes.profile)}>
+          <Text style={styles.saveText}>Save</Text>
         </TouchableOpacity>
         </View>
-     
-        
         
         <View style={styles.userInputs}>
             <View style={styles.recommendations} >
@@ -76,9 +85,13 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
     resizeMode: 'cover'
   },
-  submitButton: {
+  saveButton: {
     position: 'absolute',
-    top: 818
+    top: 818,
+    shadowOffset: { width: 3, height: 6 },
+    shadowColor: 'black',
+    shadowOpacity: 0.16,
+    elevation: 5
   },
   inputContainer: {
       borderBottomColor: '#F5FCFF',
@@ -106,7 +119,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 750
   },
-  submitButtonContainer: {
+  saveButtonContainer: {
     height:48,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -114,13 +127,11 @@ const styles = StyleSheet.create({
     width:150,
     borderRadius:30,
   },
-  submitText: {
+  saveText: {
     fontSize: 25,
     color: 'white',
     fontWeight: 'bold'
   },
-  
-  
   recommendationsText: {
     position: 'absolute',
     top: -50,
@@ -141,16 +152,32 @@ const styles = StyleSheet.create({
     top: -300,
     borderRadius: 20,
     justifyContent:"center",
-    padding:10 
+    padding:10,
+    shadowOffset: { width: 3, height: 6 },
+    shadowColor: 'black',
+    shadowOpacity: 0.16,
+    elevation: 5
   },
   continueButton: {
     backgroundColor: '#EFC102',
   },
-  continueText: {
+  saveText: {
     fontSize: 25,
     color: 'white',
     fontWeight: 'bold'
   },
+  emailText: {
+    fontSize: 34,
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'absolute',
+    top: 52,
+},
+  backIcon: {
+    position: 'absolute',
+    top: 56,
+    left: 10,
+},
 });
 
                                             

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { MainWrapperPrimary, HeaderPrimary, BackIcon, LogoMain, Wrapper, TitleInfoCard, InputTitle, ComponentWrapper, Spacer, TouchableCustomIcon } from '../../../Components';
 import sizes from '../../../Themes/Sizes';
 
@@ -16,6 +16,7 @@ class AccountSettings extends Component {
 
     render() {
         const { navigation } = this.props
+        const { navigate } = this.props.navigation
         return (
             <MainWrapperPrimary>
                 <HeaderPrimary
@@ -23,7 +24,7 @@ class AccountSettings extends Component {
                     title="Account Settings"
                     headerRight={
                         <TouchableOpacity onPress={() => this.props.navigation.navigate(routes.trending)}> 
-                        <LogoMain />
+                          <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                         </TouchableOpacity>
                     }
                 />
@@ -36,15 +37,18 @@ class AccountSettings extends Component {
                         </ComponentWrapper>
                         <TitleInfoCard
                             title="Name"
+                            onPress={() => navigate(routes.editProfile)}
                             info="Alex Will"
                             shadow
                         />
                         <TitleInfoCard
                             title="Email"
+                            onPress={() => navigate(routes.editEmail)}
                             info="alexw225@gmail.com"
                         />
                         <TitleInfoCard
                             title="Location"
+                            onPress={() => navigate(routes.editLocation)}
                             info="Denver, CO."
                         />
                         <TitleInfoCard
@@ -52,6 +56,7 @@ class AccountSettings extends Component {
                         />
                         <TitleInfoCard
                             title="Change Password"
+                            onPress={() => navigate(routes.changePassword)}
                         />
                     </Wrapper>
                     <Wrapper animation="fadeInUpBig">
@@ -62,6 +67,7 @@ class AccountSettings extends Component {
                         </ComponentWrapper>
                         <TitleInfoCard
                             title="About Trevi"
+                            onPress={() => navigate(routes.aboutTrevi)}
                             hideLine
                             //info="Alex Will"
                             //shadow

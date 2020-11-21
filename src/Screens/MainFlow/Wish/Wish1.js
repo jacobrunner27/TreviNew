@@ -44,7 +44,7 @@ export default class LoginView extends Component {
 
           <View styles={styles.headerIconLeft}> 
             <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-              <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
+              <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
             </TouchableOpacity>
           </View>
 
@@ -257,14 +257,14 @@ const styles = StyleSheet.create({
   treviIcon: {
     flexDirection: 'row',
     position: 'absolute',
-    marginVertical: 60,
-    left: 10
-},
+    top: 60,
+    left: 18
+  },
   headerIconLeft: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
-},
+  },
 });
 
                                             

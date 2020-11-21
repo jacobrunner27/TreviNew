@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { MainWrapper, HeaderPrimary, BackIcon, LogoMain, MainWrapperPrimary, Wrapper, SmallTitle, TinyTitle, SmallText, Spacer, ImageRound, TitleInfoCard } from '../../../Components';
 import { CardWrapper, AbsoluteWrapper } from '../../../Components/wrappers';
 import { Colors, AppStyles, Sizes, appImages } from '../../../Themes';
@@ -24,7 +24,7 @@ class Profile extends Component {
                     <HeaderPrimary
                         headerLeft={
                             <TouchableOpacity  onPress={() => navigate(routes.trending)}>
-                            <LogoMain />
+                              <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                             </TouchableOpacity>
                         }
                         shadowOff
@@ -49,7 +49,7 @@ class Profile extends Component {
                     <TitleInfoCard
                         title="Edit Profile"
                         shadow
-                        onPress={() => navigate(routes.editProfile)}
+                        onPress={() => navigate(routes.accountSettings)}
                     />
                     <TitleInfoCard
                         title="About Trevi"
@@ -60,7 +60,7 @@ class Profile extends Component {
                     />
                     <TitleInfoCard
                         title="Recomandations"
-                        
+                        onPress={() => navigate(routes.createAccountOrLoginScreen)}
                     />
                     <TitleInfoCard
                         title="Account Settings"
@@ -108,5 +108,11 @@ const styles = StyleSheet.create({
     },
     imageProfile: {
 
-    }
+    },
+    treviIcon: {
+        flexDirection: 'row',
+        position: 'absolute',
+        marginVertical: 60, 
+        left: 18
+    },
 })

@@ -34,12 +34,18 @@ const routes = {
     createAccountOrLoginScreen: 'createAccountOrLoginScreen',
     editEmail: 'editEmail',
     editLocation: 'editLocation',
+    changePassword: 'changePassowrd',
+    changePasswordConfirmation: 'changePasswordConfirmation',
+    resetPassword: 'resetPassword',
+    resetPasswordConfirmation: 'resetPasswordConfirmation',
     loginScreen: 'loginScreen',
     verifyEmail: 'verifyEmail',
     termsAndConditions: 'termsAndConditions',
     Grant1: 'Grant1',
     Grant2: 'Grant2',
+    Grant3: 'Grant3',
     MyGrantlist: 'MyGrantlist',
+
 }
 
 const tab = {

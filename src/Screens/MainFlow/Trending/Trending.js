@@ -418,7 +418,7 @@ class Trending extends Component {
                                 }
                                 {
                                     this.buttonSmall({
-                                        text: 'Submite',
+                                        text: 'Submit',
                                         buttonStyle: { backgroundColor: Colors.white },
                                         textStyle: [styles.textGray],
                                         onPress: () => this.toggleFilterModal()
@@ -445,12 +445,12 @@ class Trending extends Component {
                         <Image source={require('../../../Assets/profile/1.jpg')} style={{ width: totalSize(4), height: totalSize(4), borderRadius: 50, borderWidth: 2, borderColor: Colors.white }} />
                         </TouchableOpacity>   
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate('myWishlist')}>
+                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate(routes.myWishlist)}>
                         <IonIcon name={'reader-outline'} size={35} color={Colors.white}  />
                         </TouchableOpacity> 
 
                         <TouchableOpacity style={styles.treviIcon}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }} />
+                        <Image source={require('../../../Assets/Images/treviLogoHome.png')} style={{ width: totalSize(4), height: totalSize(4), }} />
                         </TouchableOpacity>
 
                      </ImageBackground>
@@ -538,7 +538,7 @@ class Trending extends Component {
                                 <this.buttonSmall
                                     text="Sell"
                                     buttonStyle={{ paddingHorizontal: width(7.5), backgroundColor: Colors.secondary }}
-                                    onPress={()=> this.props.navigation.navigate(routes.createAccountOrLoginScreen)}
+                                    onPress={()=> this.props.navigation.navigate(routes.Grant1)}
                                 />
                             </View>
                         </View>
@@ -703,8 +703,7 @@ const styles = StyleSheet.create({
     treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
-        marginVertical: 60,
-        
+        marginVertical: 60, 
     },
 
     textCenter: {

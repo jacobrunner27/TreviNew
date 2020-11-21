@@ -146,14 +146,14 @@ class Grant2 extends Component {
                         {this.props.children}    
 
                         <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
+                        <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                         </TouchableOpacity>
 
                         <Text style={styles.grantText}>
                             Grant
                         </Text>
 
-                        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.Grant1)}>
+                        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.Grant3)}>
                         <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
                         </TouchableOpacity> 
 
@@ -400,8 +400,8 @@ const styles = StyleSheet.create({
     treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
-        marginVertical: 60,
-        right: 10
+        top: 75,
+        right: 18
     },
     backIcon: {
         position: 'absolute',
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         position: 'absolute',
-        top: 62,
+        top: 65,
     },
     submitButton: {
         shadowOffset: { width: 3, height: 6 },

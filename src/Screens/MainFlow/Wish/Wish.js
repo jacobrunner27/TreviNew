@@ -145,8 +145,8 @@ class Wish extends Component {
                      <ImageBackground source={require('../../../Assets/Images/WishlistHeader.jpg')} style={styles.backgroundImage}>
                         {this.props.children}    
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
+                        <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
+                        <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                         </TouchableOpacity> 
 
                         <Text style={styles.wishText}>
@@ -382,11 +382,11 @@ const styles = StyleSheet.create({
         marginVertical: 60,
         left: 15
     },
-    wishlistIcon: {
+    treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
-        marginVertical: 60,
-        right: 10
+        marginVertical: 70,
+        right: 18
     },
     textCenter: {
         textAlign: 'center'
@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
     },
     backIcon: {
         position: 'absolute',
-        marginVertical: 70,
+        marginVertical: 66,
         left: 10,
       },
     submitButton: {

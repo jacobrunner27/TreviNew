@@ -6,22 +6,33 @@ import { Wish,Wish1 } from '../Screens/MainFlow/Wish';
 
 import { 
     createAccountScreen, 
-    createAccountOrLoginScreen, 
-    EditEmail, 
-    EditLocation, 
+    createAccountOrLoginScreen,
     LoginScreen, 
     verifyEmail, 
     termsAndConditions
 } from '../Screens/MainFlow/login'
 
-import { Grant1,Grant2} from '../Screens/MainFlow/Grant';
+import { Grant1,Grant2,Grant3} from '../Screens/MainFlow/Grant';
 
 import { MyGrantlist } from '../Screens/MainFlow/MyGrantlist';
 import { MyWishlist } from '../Screens/MainFlow/MyWishlist';
 import { OffersTinder, Offers, OffersTinderList } from '../Screens/MainFlow/Offers';
 import { Trending } from '../Screens/MainFlow/Trending';
 import {Inbox,Chat,NewChat} from '../Screens/MainFlow/Chat'
-import { EditProfile, Profile, AccountSettings, AboutTrevi } from '../Screens/MainFlow/Profile';
+import { 
+    EditProfile, 
+    Profile, 
+    AccountSettings, 
+    AboutTrevi, 
+    EditEmail, 
+    EditLocation, 
+    ChangePassword,
+    ResetPassword,
+    ResetPasswordConfirmation,
+    ChangePasswordConfirmation
+} 
+from '../Screens/MainFlow/Profile';
+
 import { routes } from '../services';
 
 const Stack = createStackNavigator();
@@ -130,6 +141,22 @@ function Navigation() {
                     component={EditLocation}
                 />
                 <Stack.Screen
+                    name={routes.changePassword}
+                    component={ChangePassword}
+                />
+                <Stack.Screen
+                    name={routes.changePasswordConfirmation}
+                    component={ChangePasswordConfirmation}
+                />
+                <Stack.Screen
+                    name={routes.resetPassword}
+                    component={ResetPassword}
+                />
+                <Stack.Screen
+                    name={routes.resetPasswordConfirmation}
+                    component={ResetPasswordConfirmation}
+                />
+                <Stack.Screen
                     name={routes.loginScreen}
                     component={LoginScreen}
                 />
@@ -144,6 +171,10 @@ function Navigation() {
                 <Stack.Screen
                     name={routes.Grant2}
                     component={Grant2}
+                />
+                <Stack.Screen
+                    name={routes.Grant3}
+                    component={Grant3}
                 />
                 <Stack.Screen
                     name={routes.MyGrantlist}

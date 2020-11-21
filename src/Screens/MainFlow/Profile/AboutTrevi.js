@@ -40,13 +40,13 @@ export default class AboutTrevi extends Component {
 
           <View styles={styles.headerIconRight}> 
             <TouchableOpacity style={styles.treviIcon} onPress={() => this.props.navigation.navigate(routes.trending)}>
-              <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }}/>
+              <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
             </TouchableOpacity>
           </View>
           
           <View styles={styles.headerIconLeft}> 
-            <TouchableOpacity style={styles.wishlistIcon} onPress={() => this.props.navigation.navigate(routes.profile)}>
-              <MCIcon name={'star-outline'} size={35} color={'white'}  />
+            <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.navigate(routes.profile)}>
+            <IonIcon name={'chevron-back-outline'} size={35} color={'white'}  />
             </TouchableOpacity> 
           </View>
 
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
   treviIcon: {
     flexDirection: 'row',
     position: 'absolute',
-    marginVertical: 60,
-    right: 10
+    marginVertical: 62,
+    right: 18
 },
 wishlistIcon: {
   flexDirection: 'row',
@@ -231,6 +231,11 @@ headerIconRight: {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center'
+},
+backIcon: {
+  position: 'absolute',
+  top: 55,
+  left: 10,
 },
 });
 

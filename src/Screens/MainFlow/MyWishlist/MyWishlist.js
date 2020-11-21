@@ -235,14 +235,14 @@ class MyWishlist extends Component {
 
 
                         <TouchableOpacity onPress={()=> this.props.navigation.navigate(routes.trending)} style={styles.treviIcon}>
-                        <Image source={require('../../../Assets/Images/TreviLogo.jpg')} style={{ width: totalSize(4), height: totalSize(4), }} />
+                        <Image source={require('../../../Assets/Images/littleTreviLogo.png')} />
                         </TouchableOpacity>
 
                         <Text style={styles.myWishlistText}>
                             My Wishlist
                         </Text>
 
-                        <TouchableOpacity style={styles.wishlistIcon} onPress={()=> this.props.navigation.navigate(routes.Grant1)} >
+                        <TouchableOpacity style={styles.wishlistIcon} onPress={()=> this.props.navigation.navigate(routes.MyGrantlist)} >
                         <IonIcon name={'reader-outline'} size={35} color={Colors.white}  />
                         </TouchableOpacity> 
 
@@ -429,8 +429,8 @@ const styles = StyleSheet.create({
     treviIcon: {
         flexDirection: 'row',
         position: 'absolute',
-        marginVertical: 60,
-        left: 15
+        top: 70,
+        left: 18
         
     },
     textCenter: {
